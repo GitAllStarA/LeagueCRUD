@@ -1,0 +1,32 @@
+<h1>this is the view file coming from the players controller Index method</h1>
+<h1><%= @player.count%> players in league</h1>
+
+<table>
+    <thread>
+        <tr>
+            <td><strong>First name</strong> &nbsp;</td>
+            <td><strong>Last name</strong> &nbsp;</td>
+            <td><strong>Actions</strong> &nbsp;</td>
+            <td><strong>Edit</strong> &nbsp;</td>
+            <td><strong>Delete</strong> &nbsp;</td>
+
+        </tr>
+    </thread>
+    <tbody>
+    <tr>
+        <% @player.each do |player| %>
+        <tr>
+            <td>&nbsp;<i><%= player.first_name%> </i>&nbsp;</td>
+            <td>&nbsp;<%= player.last_name%>&nbsp;</td>
+            <td>&nbsp;<a href="/players/<%= player.id %>">Show</a>&nbsp; </td>
+            <td>&nbsp;<a href="/players/<%= player.id %>/edit">Edit player</a>&nbsp; </td>
+            <td>&nbsp;<a href="/players/<%= player.id %>" data-method="delete" data-confirm="Are you sure, you want to delete the <%= player.first_name%>'s profile">Delete player</a>&nbsp; </td>
+
+        </tr>
+       <%end%>
+       </tr>
+    </tbody>
+</table>
+
+<h1>
+<a href="/players/new">Add New player/car</a></h1>
