@@ -1,30 +1,9 @@
-<title><% content_for(:title,"Create New player") %></title>
 <h1>Create new players</h1>
-
 <% if flash[:errors] %>
 <% flash[:errors].each do |e| %>
      <p><%= e %></p>
 <% end %>
 <% end %>
-
-
-
-<%= form_for (@player) do |f| %>
-  <p>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>      
-  </p>
-  <p>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </p>
-  <%= f.submit%>
-<% end %>
-
-
-<%
-=begin%>
- 
 <form action="/players" method="POST">
 
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
@@ -43,8 +22,6 @@
         <input type="submit" value="create">
     </p>
 
-</form> 
-<%
-=end%>
+</form>
 
 <%= link_to  "Go Back to players!", players_path %>
