@@ -7,6 +7,7 @@ class PlayersController < ApplicationController
 
     # to add new player
     def new
+        @player=Player.new
     end
 
     # to create player
