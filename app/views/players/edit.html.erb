@@ -1,3 +1,5 @@
+<% content_for(:title,"Edit #{@player.first_name}'s profile") %>
+
 <h1>This is <i><u><%= @player.first_name %></u></i>'s edit page</h1>
 <% if flash[:errors] %>
 <% flash[:errors].each do |e| %>
@@ -5,22 +7,22 @@
 <% end %>
 <% end %>
 
-<%= form_for (@player.id) do |f| %>
-  <p>
+<%= form_for(@player,url: "player",:html=>{:method => :post}) do |f| %>
+<p>
     <%= f.label :first_name %>
-    <%= f.text_field :first_name %>      
-  </p>
-  <p>
+    <%= f.text_field :first_name %>
+</p>
+<p>
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
-  </p>
-  <%= f.submit%>
+</p>
+<%= f.submit%>
 <% end %>
 
 
 <%
 =begin%>
- <form action="/players/<%= @player.id %>" method="post">
+<form action="/players/<%= @player.id %>" method="post">
 
     <input type="hidden" name="_method" value="patch">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
@@ -33,7 +35,7 @@
         <input type="text" name="player[last_name]" value="<%= @player.last_name %>">
     </p>
     <p><input type="submit" value="Update"></p>
-</form> 
+</form>
 <%
 =end%>
 <h1><%= link_to  "Go Back to players!", players_path %></h1>

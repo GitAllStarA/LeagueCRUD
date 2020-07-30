@@ -1,6 +1,4 @@
-
-
-<%= content_for(:title,"it's  profile") %>
+<%= content_for(:title,"it's  #{@player.first_name}'s profile") %>
 <h1> this is the <%= @player.first_name%> player profile page </h1>
 <table>
     <thread>
@@ -17,5 +15,5 @@
     </tbody>
 </table>
 <h1>
-<%= link_to  "Go Back to players!", players_path %>
+    <%= link_to  "Go Back to players!", players_path %>
 </h1>
