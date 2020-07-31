@@ -37,11 +37,11 @@ class PlayersController < ApplicationController
 
     # update player's data
      def update
-        player = Player.find(params[:id])
-        if player.update(player_params)
+        @player = Player.find(params[:id])
+        if @player.update(player_params)
             redirect_to :root
         else
-            flash[:errors]=player.errors.full_messages
+            flash[:errors]=@player.errors.full_messages
             redirect_to player_edit_path(player.id)
         end
     end
