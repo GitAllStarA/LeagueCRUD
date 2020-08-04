@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-
+    before_action :require_login
     # show list of players
     def index
         @player = Player.all

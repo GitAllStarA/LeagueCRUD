@@ -19,10 +19,10 @@
         <tr>
             <td>&nbsp;<i><%= player.first_name%> </i>&nbsp;</td>
             <td>&nbsp;<%= player.last_name%>&nbsp;</td>
-            <td>&nbsp;<%= link_to  "Show Profile", player_id_path(player.id) %>&nbsp; </td>
+            <td>&nbsp;<%= link_to  "Show Profile", player_path(player.id) %>&nbsp; </td>
 
-            <td>&nbsp; <%= link_to  "Edit Player", player_edit_path(player.id) %> &nbsp; </td>
-            <td>&nbsp; <%= link_to  "Delete Player", player_destroy_path(player.id), data: {method: :delete, confirm:"Are you sure, you want to delete profile" } %> &nbsp; </td>
+            <td>&nbsp; <%= link_to  "Edit Player", edit_player_path(player.id) %> &nbsp; </td>
+            <td>&nbsp; <%= link_to  "Delete Player", "/players/#{player.id}", data: {method: :delete, confirm:"Are you sure, you want to delete profile" } %> &nbsp; </td>
 
         </tr>
         <%end%>
@@ -31,5 +31,7 @@
 </table>
 
 <h1>
-    <%= link_to  "Add profiles", players_new_path %>
+    <%= link_to  "Add profiles", new_player_path %>
+        <%= link_to  "logout profiles", "/logout" %>
+
 </h1>
